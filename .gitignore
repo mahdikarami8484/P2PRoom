@@ -1,0 +1,5 @@
+/googletest/
+/.vscode/
+/build/
+/bin/
+/CMakeFiles/
