@@ -19,16 +19,16 @@ target_link_libraries(main PRIVATE Qt5::Core Qt5::Quick Qt5::Qml)
 # Google Test setup
 enable_testing()
 include(GoogleTest)
-add_executable(test ${TEST_SOURCES})
-target_sources(test PRIVATE ${SOURCES} ${TEST_SOURCES})
-target_link_libraries(test PRIVATE Qt5::Core Qt5::Quick Qt5::Qml gtest_main)
-gtest_discover_tests(test)
+add_executable(unit_tests ${TEST_SOURCES})
+target_sources(unit_tests PRIVATE ${SOURCES} ${TEST_SOURCES})
+target_link_libraries(unit_tests PRIVATE Qt5::Core Qt5::Quick Qt5::Qml gtest_main)
+gtest_discover_tests(unit_tests)
 
 # Specify include directories for targets
 target_include_directories(main PRIVATE include)
-target_include_directories(test PRIVATE include)
+target_include_directories(unit_tests PRIVATE include)
 
 # Optionally, set the output directories for executables
-set_target_properties(main test PROPERTIES
+set_target_properties(main unit_tests PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
 )
