@@ -1,6 +1,10 @@
-#include <iostream>
+#include <QGuiApplication>
+#include <QQmlApplicationEngine>
 
-int main() {
-    std::cout << "Hello, This is an initial structure of the P2PRoom project" << std::endl;
-    return 0;
+int main(int argc, char *argv[]) {
+    QGuiApplication app(argc, argv);
+
+    QQmlApplicationEngine engine;
+    engine.load(QUrl(QStringLiteral("qrc:/HelloWorld.qml")));
+    return app.exec();
 }
